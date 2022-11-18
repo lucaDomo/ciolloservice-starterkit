@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +31,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//Admin route
+Route::prefix('admin')->group(function() {
+    Route::get('/', [AdminController::class, 'index']);
+    //Route Admin Management
+    Route::get('/gestioneAdmin', [AdminManagementController::class, 'index']);
+    Route::get('/updateAdmin', [AdminManagementController::class, 'indexUpdateAdmin']);
+    Route::post('/updateAdmin', [AdminManagementController::class, 'updateAdmin']);
+    //Route upload file
+
+});
