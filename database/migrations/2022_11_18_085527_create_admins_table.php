@@ -18,10 +18,11 @@ return new class extends Migration
             $table->unsignedBigInteger('group_id');
             $table->foreign('group_id')->references('id')->on('groups');
             $table->string('firstname');
-            $table->string('surname');
             $table->string('lastname')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->string('cellular');
             $table->integer('login_attempts')->default(0);
             $table->integer('status')->default(1);
