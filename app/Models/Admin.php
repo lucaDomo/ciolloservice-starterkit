@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Admin extends \Illuminate\Foundation\Auth\User
+class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -16,9 +17,13 @@ class Admin extends \Illuminate\Foundation\Auth\User
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+
         'email',
         'password',
+        'group_id',
+        'firstname',
+        'lastname',
+        'cellular',
     ];
 
     /**
