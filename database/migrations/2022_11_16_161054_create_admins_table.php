@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->foreign('group_id')->references('id')->on('admin_groups');
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->string('firstname');
             $table->string('surname');
             $table->string('lastname')->unique();
