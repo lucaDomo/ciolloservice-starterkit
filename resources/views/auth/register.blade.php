@@ -9,11 +9,29 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
+            <!-- firstName -->
             <div>
-                <x-input-label for="name" :value="__('Name')" />
+                <x-input-label for="firstname" :value="__('Firstname')" />
 
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus />
+
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
+            <!-- lastName -->
+            <div>
+                <x-input-label for="lastname" :value="__('Lastname')" />
+
+                <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus />
+
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
+            <!-- cellular -->
+            <div>
+                <x-input-label for="cellular" :value="__('Cellular')" />
+
+                <x-text-input id="cellular" class="block mt-1 w-full" type="text" name="cellular" :value="old('cellular')" required autofocus />
 
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>

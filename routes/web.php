@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\AdminManagementController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,5 +41,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/updateAdmin', [AdminManagementController::class, 'indexUpdateAdmin']);
     Route::post('/updateAdmin', [AdminManagementController::class, 'updateAdmin']);
     //Route upload file
-
+    Route::get('/File', [FileController::class, 'index']);
+    Route::post('/File', [FileController::class, 'uploadFile']);
+    Route::delete('/File', [FileController::class, 'deleteFile']);
 });
